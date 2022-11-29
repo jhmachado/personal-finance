@@ -10,7 +10,7 @@ export default function BudgetCard({
    onViewExpensesClick,
    hideButtons,
  }) {
-  const classNames = [];
+  const classNames = ["mb-4"];
   if (amount > max) {
     classNames.push("bg-danger", "bg-opacity-10");
   } else if (gray) {
@@ -26,9 +26,8 @@ export default function BudgetCard({
 
   return (
     <Card className={classNames.join(" ")}>
-      <Card.Body>
-        <Card.Title
-          className="d-flex justify-content-between align-items-baseline fw-normal mb-3">
+      <Card.Header>
+        <div className="d-flex justify-content-between align-items-baseline fw-normal mb-3">
           <div className="me-2">{name}</div>
           <div className="d-flex align-items-baseline">
             {currencyFormatter.format(amount)}
@@ -38,7 +37,10 @@ export default function BudgetCard({
             </span>
             )}
           </div>
-        </Card.Title>
+        </div>
+      </Card.Header>
+      <Card.Body>
+        <Card.Title></Card.Title>
         {max && (
           <ProgressBar
             className="rounded-pill"
